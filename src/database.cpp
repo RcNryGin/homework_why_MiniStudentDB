@@ -1,7 +1,7 @@
 #include"database.h"
 #include<iostream>
 
-DB::DB(const string& fn)
+DB::DB(const string& fn)// 构造函数：打开数据库并初始化表
 {
     int rc=sqlite3_open(fn.c_str(),&db);
     if(rc!=SQLITE_OK)
@@ -19,14 +19,14 @@ DB::DB(const string& fn)
         exec(sql);
     }
 }
-DB::~DB()
+DB::~DB()// 析构函数：关闭数据库连接
 {
     if(db)
     {
         sqlite3_close(db);
     }
 }
-bool DB::exec(const string& sql)
+bool DB::exec(const string& sql)// 执行SQL语句
 {
     if(!db) return false;
     char* err=nullptr;

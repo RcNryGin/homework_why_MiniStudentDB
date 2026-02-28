@@ -5,7 +5,7 @@ using namespace std;
 
 DB db("data/student.db");
 
-void showMenu()
+void showMenu()// 显示菜单
 {
     cout<<"===== Student DB ====="<<endl;
     cout<<"1. Add student"<<endl;
@@ -14,7 +14,7 @@ void showMenu()
     cout<<"4. List students"<<endl;
     cout<<"0. Exit"<<endl;
 }
-void addd()
+void addd()// 添加学生
 {
     string name;int age;double score;
     cout<<"Enter name: ";cin>>name;
@@ -24,7 +24,7 @@ void addd()
     if(db.exec(sql)) cout<<"Student added successfully."<<endl;
     else cout<<"Failed to add student."<<endl;
 }
-void dell()
+void dell()// 删除学生
 {
     int id;
     cout<<"Enter student id to delete: ";cin>>id;
@@ -32,7 +32,7 @@ void dell()
     if(db.exec(sql)) cout<<"Student deleted successfully."<<endl;
     else cout<<"Failed to delete student."<<endl;
 }
-void updd()
+void updd()// 更新学生信息
 {
     int id;string name;int age;double score;
     cout<<"Enter student id to update: ";cin>>id;
@@ -43,7 +43,7 @@ void updd()
     if(db.exec(sql)) cout<<"Student updated successfully."<<endl;
     else cout<<"Failed to update student."<<endl;
 }
-void liss()
+void liss()// 列出所有学生
 {
     sqlite3* sqlite;
     if(sqlite3_open("data/student.db",&sqlite)!=SQLITE_OK)
@@ -71,7 +71,7 @@ void liss()
     sqlite3_finalize(stmt);
     sqlite3_close(sqlite);
 }
-int main()
+int main()// 主函数，根据输入的数字选择功能并管理学生数据
 {
     int choice;
     while(true)
