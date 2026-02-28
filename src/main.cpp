@@ -5,6 +5,7 @@ using namespace std;
 
 Database db("data/student.db");
 
+// 显示菜单
 void showMenu()
 {
     cout<<"===== Student DB ====="<<endl;
@@ -15,6 +16,7 @@ void showMenu()
     cout<<"0. Exit"<<endl;
 }
 
+// 添加学生
 void addStudent()
 {
     string name;
@@ -33,6 +35,7 @@ void addStudent()
         cout<<"Failed to add student."<<endl;
 }
 
+// 删除学生
 void deleteStudent()
 {
     int id;
@@ -45,6 +48,7 @@ void deleteStudent()
         cout<<"Failed to delete student."<<endl;
 }
 
+// 更新学生信息
 void updateStudent()
 {
     int id;
@@ -66,6 +70,7 @@ void updateStudent()
         cout<<"Failed to update student."<<endl;
 }
 
+// 列出所有学生
 void listStudents()
 {
     sqlite3* sqlite;
@@ -95,6 +100,7 @@ void listStudents()
     sqlite3_close(sqlite);
 }
 
+// 主函数
 int main()
 {
     int choice;
